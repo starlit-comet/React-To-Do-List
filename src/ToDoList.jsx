@@ -10,6 +10,7 @@ function ToDoList(){
     }
 
     const addTask=()=>{
+        if(newTask.trim().length===0) return
         setTasks([...tasks,newTask])
         setNewTask('')
     }
@@ -55,7 +56,7 @@ function ToDoList(){
             <button onClick={addTask} className="add-btn" >Add Task</button>
             <ul >
                 {tasks.map((e,i)=> {
-             return <li key={i} className="task-list">{e}
+             return <li key={i} className="task-list"><span className="text">{e}</span>
                     <button className="delete-task" onClick={()=>deleteTask(i)} >❌</ button>
                     <button className="move-task" onClick={()=>moveTaskUp(i)}>⬆</     button>
                     <button className="move-task" onClick={()=>moveTaskDown(i)}>⬇</   button>
